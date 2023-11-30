@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div class="col-4">
+        <form class="p-5">
+            <div class="mb-3">
+                <label for="numero">Introduce un número:</label>
+                <input type="number" id="numero">
+            </div>
+            <div class="mb-3">
+                <label for="numeroSuma">Introduce un número a sumar:</label>
+                <input type="number" id="numeroSuma">
+            </div>
+        </form>
+        <button id="suma">Suma</button>
+        <div id="resultat" class="col-3"></div>
+    </div>
+    <hr>
+    <div>
+        <p>Clica para generar un número aleatorio: <button id="btnAleatorio">Número Aleatorio</button></p>
+        <div id="numeroAleatorio"></div>
+    </div>
+    <hr>
+    <div>
+        <h3>EJEMPLO DEL EJERCICIO 3</h3>
+        <div id="persona">
+            <p>Creamos una persona llamada Victor:</p>
+            <div id="respuestaVictor"></div>
+        </div>
+    </div>
+
+    <script>
+        let numero;
+        let numeroSuma;
+        let suma;
+        let resultat;
+        let numeroAleatorio;
+        let btnAleatorio;
+        let respuestaVictor;
+        window.onload = function () {
+            //EJERCICIO 1
+            numero = document.getElementById('numero');
+            numeroSuma = document.getElementById('numeroSuma');
+            suma = document.getElementById('suma');
+            resultat = document.getElementById('resultat');
+
+            suma.addEventListener('click', () => add(numero.value, numeroSuma.value));
+
+            //EJERCICIO 2
+            numeroAleatorio = document.getElementById('numeroAleatorio');
+            btnAleatorio = document.getElementById('btnAleatorio');
+
+            btnAleatorio.addEventListener('click', () => {
+                numeroAleatorio.textContent = Math.floor(Math.random() * 100);
+            })
+
+            //EJERCICIO 3
+            respuestaVictor = document.getElementById('respuestaVictor');
+            victor.greet();
+            respuestaVictor.textContent = victor.miraConsole();
+
+            //EJERCICIO 4
+            let arrayNumeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            printNumber(arrayNumeros);
+
+        }
+
+        let add = ((a, b) => resultat.textContent = parseInt(a) + parseInt(b));
+
+        //EJERCICIO 3
+        function Person(name) {
+            this.name = name;
+            this.greet = () => { console.log('Hola, ' + this.name) };
+        }
+
+        Person.prototype.miraConsole = () => { return 'Hola, para ver el saludo debes ver la consola' };
+
+        let victor = new Person('Victor');
+
+        //EJERCICIO 4
+        function printNumber(array) {
+            console.log('Números del array del ejercicio 4:');
+            let imprimirNumero = (numero) => console.log(numero);
+            for (let i = 0; i < array.length; i++) {
+                imprimirNumero(array[i]);
+            }
+        }
+        
+
+        //EJERCICO 5
+        setTimeout(() => console.log('Mensaje del ejercicio 5 con setTimeout.'), 3000);
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
