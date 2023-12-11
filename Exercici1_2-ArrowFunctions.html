@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="ejerciio-1" action="#">
+        <label for="edad">Edad</label>
+        <input type="number" id="edad">
+        <button type="submit" id="edad-btn">Ejercicio 1</button>        
+    </form>
+    <br>
+    <form id="ejerciio-2" action="#">
+        <label for="num1">Número 1</label>
+        <input type="number" id="num1">
+        <label for="num2">Número 2</label>
+        <input type="number" id="num2">
+        <button type="submit" id="num-ej2-btn">Ejercicio 2</button>        
+    </form>
+    <br>
+    <form id="ejerciio-3" action="#">
+        <label for="num">Número 0</label>
+        <input type="number" id="num">
+        <label for="a">Número 1</label>
+        <input type="number" id="a">
+        <label for="b">Número 2</label>
+        <input type="number" id="b">
+        <label for="c">Número 3</label>
+        <input type="number" id="c">
+        <button type="submit" id="num-ej3-btn">Ejercicio 3</button>        
+    </form>
+    <br>
+    <button type="submit" id="parOImpar-btn">Ejercicio 4</button> 
+    <script>
+        //EJERCICIO 1
+        let edad = document.getElementById('edad');
+        let edad_btn = document.getElementById('edad-btn');
+
+        edad_btn.addEventListener('click', function(){
+            edad.value>=18? console.log('Puedes conudcir.') : console.log('No puedes conducir.');
+        });
+
+        //EJERCICIO 2
+        let num1 = document.getElementById('num1');
+        let num2 = document.getElementById('num2');
+        let num_btn = document.getElementById('num-ej2-btn');
+
+        num_btn.addEventListener('click', function(){
+            num1.value>num2.value? console.log('El número 1 es más grande.') : console.log('El número 2 es más grande.');
+        });
+
+        //EJERCICIO 3
+        let num = document.getElementById('num');
+        let a = document.getElementById('a');
+        let b = document.getElementById('b');
+        let c = document.getElementById('c');
+        let num3_btn = document.getElementById('num-ej3-btn');
+
+        num3_btn.addEventListener('click', function(){
+            num.value==0? console.log('El número es zero.') : num.value>0 ? console.log('El número es positivo.') : console.log('El número es negativo.');
+            trobarMaxim(a.value, b.value, c.value);
+        });
+
+        function trobarMaxim(a, b, c){
+            a>b ? ((a>c) ? console.log(a+' es el más grande.') : console.log(c+' es el más grande.')) : ((b>c) ? console.log(b+' es el más grande.') : console.log(c+' es el más grande.'));
+        }
+
+        //EJERCICIO 4
+        
+        let btnEj4 = document.getElementById('parOImpar-btn');
+
+        btnEj4.addEventListener('click', function(){
+            let array = [];
+            for(let i=0; i<10; i++){
+                array.push(Math.floor(Math.random()*100));
+            }
+            console.log('El array de números es: '+array.toString());
+
+            parOImpar(array);
+            
+        });
+        
+        let parOImpar = function(array){
+            for(let i=0; i<array.length; i++){
+                array[i]%2 === 0 ? console.log(array[i] + ' es par.') : console.log(array[i] + ' es impar.');
+            }
+        }
+        
+    </script>
+</body>
+</html>
