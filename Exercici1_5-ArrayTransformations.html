@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //EJERCICIO 1
+        console.log('EJERCICIO 1');
+        arrayOriginal = [1, 2, 3, 4];
+        arrayCuadrado = arrayOriginal.map(x => Math.pow(x, 2)); //o también x=>x*x
+        console.log('Array original: '+arrayOriginal);
+        console.log('Array al cuadrado: '+arrayCuadrado);
+
+        //EJERCICIO 2
+        console.log('EJERCICIO 2');
+        arrayPares = arrayOriginal.filter(x=>x%2===0);
+        console.log('Array con números pares: '+arrayPares);
+
+        //EJERCICIO 3
+        console.log('EJERCICIO 3');
+        arrayOriginalNuevo = [1, 10, 8, 11];
+        let num = arrayOriginalNuevo.find(x=>x>10);
+        console.log('El primer número mayor a 10 es el '+num+', en la posición '+arrayOriginalNuevo.indexOf(11));
+
+
+        //EJERCICIO 4
+        console.log('EJERCICIO 4');
+        arrayEj4 = [13, 7, 8, 21];
+        let resultadoSuma = arrayEj4.reduce((acc, cur)=>(acc+cur), 0);
+        console.log('Suma de los números de arrayEj4 ('+arrayEj4+') tiene como resultado: '+resultadoSuma);
+
+        //EJERCICIO 5
+        console.log('EJERCICIO 5');
+        arrayEj5 = [ 1, 3, 7, 10 ,15, 17, 11, 5, 8, 12, 9];
+
+        function arrayfunction(array){
+            return arrayEj5.filter(x=>x>=10).map(x=>x*2).reduce((acc, cur)=>(acc+cur), 0);
+        }
+        console.log(arrayfunction(arrayEj5));
+
+        //EJERCICIO 6
+        console.log('EJERCICIO 6');
+        arrayEj6 = [11, 12, 13, 14];
+
+        if(arrayEj6.every(x=>x>10)){
+            console.log('Todos los números son mayores de 10.');
+        }else if(arrayEj6.some(x=>x>10)){
+            console.log('Algunos números son mayores de 10.');
+        }else{
+            console.log('Ningún número es mayor de 10.');
+        }
+    </script>
+</body>
+</html>

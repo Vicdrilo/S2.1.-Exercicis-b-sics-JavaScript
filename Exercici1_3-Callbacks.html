@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <br>
+    <hr>
+    <br>
+    <form action="#">
+        <label for="numero">Número: </label>
+        <input type="number" name="" id="numero">
+        <button type="submit" id="ejercicio1-btn">Ejercicio 1</button>
+    </form>
+    <br>
+    <hr>
+    <br>
+    <select name="operaciones" id="operaciones">
+        <option value="suma" selected>Suma</option>
+        <option value="resta">Resta</option>
+        <option value="multiplicacion">Multiplicación</option>
+        <option value="division">División</option>
+    </select>
+    <form action="#">
+        <label for="a">Primer Número: </label>
+        <input type="number" name="" id="a">
+        <label for="b">Segundo Número: </label>
+        <input type="number" name="" id="b">
+        
+        <button type="submit" id="ejercicio2-btn">Ejercicio 2</button>
+    </form>
+    <br>
+    <hr>
+    <br>
+    <button type="submit" id="ejercicio3-btn">Ejercicio 3</button>
+    <br>
+    <hr>
+    <br>
+    <button type="submit" id="ejercicio4-btn">Ejercicio 4</button>
+    <br>
+    <hr>
+    <br>
+    <form action="#">
+        <label for="string">Cadena de carácteres: </label>
+        <input type="text" name="" id="string">
+        
+        <button type="submit" id="ejercicio5-btn">Ejercicio 5</button>
+    </form>
+    <br>
+    <hr>
+    <br>
+    <script>
+        
+        let numEj1;
+        let ejercicio1_btn;
+        let calculoNumA;
+        let calculoNumB;
+        let calculoOperacion;
+        let ejercicio2_btn;
+
+        window.onload = function(){
+            //EJERCICIO 1
+            numEj1 = document.getElementById('numero');
+            ejercicio1_btn = document.getElementById('ejercicio1-btn');
+            
+            ejercicio1_btn.addEventListener('click', function(){
+                processar(numEj1.value, numero);
+            });
+
+            //EJERCICIO 2       
+            
+            
+            ejercicio2_btn = document.getElementById('ejercicio2-btn');
+
+            ejercicio2_btn.addEventListener('click', function(){
+                calculoNumA = document.getElementById('a').value;
+                calculoNumB = document.getElementById('b').value;
+                calculoOperacion = document.getElementById('operaciones').value;
+
+                if(calculoOperacion === 'suma'){
+                    calculadora(calculoNumA, calculoNumB, suma);
+                }else if(calculoOperacion === 'resta'){
+                    calculadora(calculoNumA, calculoNumB, resta);
+                }else if(calculoOperacion === 'multiplicacion'){
+                    calculadora(calculoNumA, calculoNumB, multiplicacion);
+                }else if(calculoOperacion === 'division'){
+                    calculadora(calculoNumA, calculoNumB, division);
+                }
+                
+            });
+
+            //EJERCICIO 3
+            let btnEj3 = document.getElementById('ejercicio3-btn');
+            btnEj3.addEventListener('click', function(){
+                esperaISaludar('Victor', saludar);
+            });
+
+             //EJERCICIO 4
+             let btnEj4 = document.getElementById('ejercicio4-btn');
+             let arrayEj4 = ['hola', 'mundo', '!!!'];
+             btnEj4.addEventListener('click', function(){
+                processarElements(arrayEj4, consoleLogElementArray);
+             });
+
+             //EJERCICIO 5
+             let btnEj5 = document.getElementById('ejercicio5-btn');
+             let string = document.getElementById('string');
+             btnEj5.addEventListener('click', function(){
+                processarCadena(string.value, consoleLogStringMayusc);
+             })
+        }
+
+        //EJERCICIO 1
+        let processar = function(num, callback){
+            callback(num);
+        }
+        
+        let numero = function(num){
+            console.log('El callback muestra el número ('+num+') por consola');
+        }
+        
+        //EJERCICIO 2 
+        let calculadora = function(num1, num2, callback){
+            callback(num1, num2);
+        }
+        function suma(a, b){
+            console.log(parseInt(a)+parseInt(b));
+        }
+
+        function resta(a, b){
+            console.log(parseInt(a)-parseInt(b));
+        }
+
+        function multiplicacion(a, b){
+            console.log(parseInt(a)*parseInt(b));
+        }
+
+        function division(a, b){
+            console.log(parseInt(a)/parseInt(b));
+        }
+
+        //EJERCICIO 3
+        function esperaISaludar(nom, callback){
+            setTimeout(function(){
+                callback(nom);
+            }, 2000);
+
+        }
+
+        function saludar(nom){
+            console.log('Hola, '+nom+'!!!');
+        } 
+
+        //EJERCICIO 4
+        function processarElements(array, callback){
+            console.log('Estos elemento están dentro del array pasado como parámetro en la función processarElements:');
+            for(let i=0; i<array.length; i++){
+                callback(array[i]);
+            }
+        }
+
+        function consoleLogElementArray(element){
+            console.log(element);
+        }
+
+        //EJERCICIO 5
+        function processarCadena(string, callback){
+            
+            if(isNaN(string)){
+                let stringMayuscula = string.toUpperCase();
+                callback(stringMayuscula);
+            }
+        }
+
+        function consoleLogStringMayusc(string){
+            console.log(string);
+        }
+        
+    </script>
+</body>
+</html>

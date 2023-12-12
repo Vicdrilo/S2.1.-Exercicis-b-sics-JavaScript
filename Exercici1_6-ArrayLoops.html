@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //EJERCICIO 1
+        console.log('EJERCICIO 1');
+        let noms = ['Anna', 'Bernat', 'Clara']; 
+        noms.forEach(x=>console.log(x));
+
+        //EJERCICIO 2
+        console.log('EJERCICIO 2');
+        let nombres = ['Anna', 'Bernat', 'Clara']; 
+        for(let nombre of nombres){
+            console.log(nombre);
+        }
+
+        //EJERCICIO 3
+        console.log('EJERCICIO 3');
+        let numeros = [1, 2, 3, 4, 5, 6]; 
+
+        let numerosPares = numeros.filter(x=>x%2===0);
+        console.log(numerosPares);
+
+        //EJERCICIO 4
+        console.log('EJERCICIO 4');
+        let obj = { nom: 'Ona', edat: 25, ciutat: 'Barcelona' };
+        for(let propiedad in obj){
+            console.log(propiedad +' : '+ obj[propiedad]);
+        }
+
+        //EJERCICIO 5
+        console.log('EJERCICIO 5');
+        for(let num of numeros){
+            if(num === 5){
+                break;
+            }
+            console.log(num);
+        }
+
+        //EJERCICIO 6
+        console.log('EJERCICIO 6');
+        for(let nombre of nombres){
+            let index = nombres.indexOf(nombre);
+            console.log('Posición número '+index+': '+nombre);
+        }
+    </script>
+</body>
+</html>

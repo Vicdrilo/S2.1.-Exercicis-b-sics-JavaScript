@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //EJERCICIO 1
+        console.log('EJERCICIO 1');
+        let array1 = ['Hola', 'mundo', '!!!'];
+        let array2 = ['Mi', 'nombre', 'es', 'Victor'];
+        let array3 = [...array1, ...array2];
+        console.log(array3);
+
+        //EJERCICIO 2
+        console.log('EJERCICIO 2');
+        suma(1, 2, 3, 4, 5, 6, 7, 8, 9);
+
+        function suma(...numeros){
+            let suma = 0;
+            let array = numeros;
+            
+            for (let i=0; i<array.length; i++){
+                suma += array[i];
+            }
+            console.log('La suma de todos los números es: '+suma);
+        }
+
+        //EJERCICIO 3
+        console.log('EJERCICIO 3');
+        objetct1 = {
+            nom: "Victor",
+            cognom: "Aguado"
+        }
+        object2 = {...objetct1};
+        object2.cognom = "Navarro";
+
+
+        console.log('Objeto 1: ');
+        console.log(objetct1);
+        console.log('Objeto 2: ');
+        console.log(object2);
+
+        //EJERCICIO 4
+        console.log('EJERCICIO 4');
+        let array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let a, b, c;
+        [a, b, ...c] = array;
+        console.log('Array original: '+array);
+        console.log('Valor de la variable a: '+a);
+        console.log('Valor de la variable b: '+b);
+        console.log('Valor de la variable c: '+c);
+
+        //EJERCICIO 5
+        console.log('EJERCICIO 5');
+        function suma(a, b, c){
+            let resultado = a+b+c;
+            console.log('Resultado de la suma de los números '+a+', '+b+' y '+c+': '+resultado);
+        }
+
+        arrayEj5 = [4, 7, 9];
+        suma(...arrayEj5);
+
+        //EJERCICIO 6
+        console.log('EJERCICIO 6');
+        obj1 = {
+            nombre:"Victor",
+            primerApellido:"Aguado"
+        }
+        obj2 = {
+            segundoApellido:"Navarro"
+        }
+
+        obj3 = {...obj1, ...obj2};
+        console.log('obj1:');
+        console.log(obj1);
+        console.log('obj2:');
+        console.log(obj2);
+        console.log('obj3:');
+        console.log(obj3);
+    </script>
+</body>
+</html>
