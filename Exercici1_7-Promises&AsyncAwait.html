@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercici 1.7: Promises & Async/Await</title>
+</head>
+<body>
+    <h1>Exercici 1.7: Promises & Async/Await</h1>
+    <script>
+        //EJERCICIO 1
+        
+        let promiseEj1 = new Promise(function(resolve, reject){
+            setTimeout(function(){
+                console.log('EJERCICIO 1 y 2');
+                resolve('Hello World!');
+            }, 2000);
+        });
+
+        //EJERCICIO 2
+        promiseEj1.then(function(e){
+            console.log(e);
+        });
+
+        //EJERCICIO 3
+        function inputIsHello(input){
+            return new Promise(function(resolve, reject){
+                if(input === 'Hello'){
+                    setTimeout(function(){
+                        console.log('EJERCICIO 3');
+                        resolve('Correct');
+                    }, 2000);
+                }else{
+                    console.log('EJERCICIO 3');
+                    reject(new Error('El input no es "Hello".'));
+                }
+            });
+        }
+
+        inputIsHello('Hello')
+            .then(function(resolve){
+                console.log(resolve);
+            })
+            .catch(function(reject){
+                console.log(reject);
+            });
+
+        inputIsHello('Hi')
+            .then(function(resolve){
+                console.log(resolve);
+            })
+            .catch(function(reject){
+                console.log(reject);
+            });
+
+        //EJERCICIO 4
+        async function ej4Function(){
+            let resultatHello = await promiseEj1;
+            console.log('EJERCICIO 4');
+            console.log(resultatHello);
+        } 
+        ej4Function();
+
+        //EJERCICIO 5
+        async function ej5Function(){
+            try{
+                let resultatHello = await promiseEj1;
+                console.log('EJERCICIO 5');
+                console.log(resultatHello);
+            }catch(e){
+                console.log(e);
+            }
+        } 
+        ej5Function();
+
+        //EJERCICIO 6
+        let prom1 = new Promise(function(resolve, reject){
+            setTimeout(()=>{
+                resolve('Ok promesa 1.');
+            }, 2000);
+        });
+        let prom2 = new Promise(function(resolve, reject){
+            setTimeout(()=>{
+                resolve('ok promesa 2.');
+            }, 3000);
+        });
+
+        Promise.all([prom1, prom2]).then((values)=>{
+            console.log('EJERCICIO 6'); 
+            console.log(values)
+        });
+    </script>
+</body>
+</html>
